@@ -1,6 +1,5 @@
 NAME = push_swap
 BONUS_NAME = checker
-
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g -I./src_mandatory -I./libft
 
@@ -21,6 +20,7 @@ SRCS = $(SRC_DIR)/arena.c \
        $(SRC_DIR)/sort_small.c \
        $(SRC_DIR)/stack_index.c \
        $(SRC_DIR)/stack_operations.c \
+       $(SRC_DIR)/strategy_selection.c \
        $(SRC_DIR)/swap.c
 
 OBJS = $(SRCS:.c=.o)

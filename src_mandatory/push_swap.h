@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 01:06:45 by abrecio-          #+#    #+#             */
+/*   Updated: 2025/10/21 01:06:46 by abrecio-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "../libft/libft.h"
@@ -77,5 +89,7 @@ int				is_sorted(t_list *stack);
 void			push_to_b_by_ranges(t_list **a, t_list **b);
 long			ft_atol(char *str);
 int				count_new_arg(char *nums);
+t_cost			calculate_cost(t_list *stack_a, t_list *stack_b, int pos_b);
+void			find_best_strategy(t_cost *cost);
 
 #endif

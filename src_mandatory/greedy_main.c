@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:22:16 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/13 12:25:37 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/10/21 01:24:26 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,11 @@ void	greedy_sort(t_list **a, t_list **b)
 	if (is_sorted(*a))
 		return ;
 	push_to_b_by_ranges(a, b);
+	write(2, "# PHASE_1_DONE\n", 15);  // Cambiar a stdout con #
 	if (ft_lstsize(*a) == 3)
 		sort_three(a);
 	push_back_greedy(a, b);
+	write(2, "# PHASE_2_DONE\n", 15);  // Cambiar a stdout con #
 	rotate_to_min(a);
+	write(2, "# PHASE_3_DONE\n", 15);  // Cambiar a stdout con #
 }

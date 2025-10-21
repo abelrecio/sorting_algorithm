@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stack_operations.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 01:01:25 by abrecio-          #+#    #+#             */
+/*   Updated: 2025/10/21 01:01:26 by abrecio-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	get_value(t_list *node)
 {
-	// esperemos que nunca sea null y que esté metiendo los números bien
 	return (*(int *)node->content);
 }
 
@@ -34,10 +45,11 @@ int	get_min(t_list *stack)
 	return (min);
 }
 
+//porque el último igual es null e itero de forma confusa
+
 int	is_sorted(t_list *stack)
 {
 	while (stack->next)
-	//porque el último igual es null e itero de forma confusa
 	{
 		if ((get_value(stack) > get_value(stack->next)))
 			return (0);
