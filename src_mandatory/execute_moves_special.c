@@ -6,33 +6,34 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:45:20 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/13 14:09:18 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/10/24 18:09:58 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate_n_times(t_list **stack, void (*rotate_fn)(t_list **), int n)
+static void	rotate_n_times(t_list **stack, void (*rotate_fn)(t_list **, int),
+		int n)
 {
 	int	i;
 
 	i = 0;
 	while (i < n)
 	{
-		rotate_fn(stack);
+		rotate_fn(stack, 0);
 		i++;
 	}
 }
 
 static void	rotate_both_n_times(t_list **a, t_list **b, void (*fn)(t_list **,
-			t_list **), int n)
+			t_list **, int), int n)
 {
 	int	i;
 
 	i = 0;
 	while (i < n)
 	{
-		fn(a, b);
+		fn(a, b, 0);
 		i++;
 	}
 }

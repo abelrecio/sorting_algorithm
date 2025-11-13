@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 15:59:28 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/02 15:59:29 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/10/24 18:10:45 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,24 @@ static void	swap(t_list **stack)
 	*stack = second;
 }
 
-void	sa(t_list **stack_a)
+void	sa(t_list **stack_a, int silent)
 {
 	swap(stack_a);
-	write(1, "sa\n", 3);
+	if (!silent)
+		write(1, "sa\n", 3);
 }
 
-void	sb(t_list **stack_b)
+void	sb(t_list **stack_b, int silent)
 {
 	swap(stack_b);
-	write(1, "sb\n", 3);
+	if (!silent)
+		write(1, "sb\n", 3);
 }
 
-void	ss(t_list **stack_a, t_list **stack_b)
+void	ss(t_list **stack_a, t_list **stack_b, int silent)
 {
 	swap(stack_a);
 	swap(stack_b);
-	write(1, "ss\n", 3);
+	if (!silent)
+		write(1, "ss\n", 3);
 }

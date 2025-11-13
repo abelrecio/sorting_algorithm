@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 15:59:42 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/02 16:22:49 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/10/24 17:39:38 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,24 @@ static void	rotate(t_list **stack)
 	last->next = first;
 }
 
-void	ra(t_list **stack_a)
+void	ra(t_list **stack_a, int silent)
 {
 	rotate(stack_a);
-	write(1, "ra\n", 3);
+	if (!silent)
+		write(1, "ra\n", 3);
 }
 
-void	rb(t_list **stack_b)
+void	rb(t_list **stack_b, int silent)
 {
 	rotate(stack_b);
-	write(1, "rb\n", 3);
+	if (!silent)
+		write(1, "rb\n", 3);
 }
 
-void	rr(t_list **stack_a, t_list **stack_b)
+void	rr(t_list **stack_a, t_list **stack_b, int silent)
 {
 	rotate(stack_a);
 	rotate(stack_b);
-	write(1, "rr\n", 3);
+	if (!silent)
+		write(1, "rr\n", 3);
 }

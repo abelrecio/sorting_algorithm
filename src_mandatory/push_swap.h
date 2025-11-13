@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 01:06:45 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/21 01:06:46 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/10/24 17:51:55 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,17 @@ void			arena_free(struct s_arena *arena);
 void			print_stack(t_list *stack, char *name);
 
 // Operaciones básicas
-void			pa(t_list **stack_a, t_list **stack_b);
-void			pb(t_list **stack_a, t_list **stack_b);
-void			rra(t_list **stack_a);
-void			rrb(t_list **stack_b);
-void			rrr(t_list **stack_a, t_list **stack_b);
-void			ra(t_list **stack_a);
-void			rb(t_list **stack_b);
-void			rr(t_list **stack_a, t_list **stack_b);
-void			sa(t_list **stack_a);
-void			sb(t_list **stack_b);
-void			ss(t_list **stack_a, t_list **stack_b);
+void			pa(t_list **stack_a, t_list **stack_b, int silent);
+void			pb(t_list **stack_a, t_list **stack_b, int silent);
+void			rra(t_list **stack_a, int silent);
+void			rrb(t_list **stack_b, int silent);
+void			rrr(t_list **stack_a, t_list **stack_b, int silent);
+void			ra(t_list **stack_a, int silent);
+void			rb(t_list **stack_b, int silent);
+void			rr(t_list **stack_a, t_list **stack_b, int silent);
+void			sa(t_list **stack_a, int silent);
+void			sb(t_list **stack_b, int silent);
+void			ss(t_list **stack_a, t_list **stack_b, int silent);
 
 // Utilidades
 char			**arena_split(char const *s, char c, struct s_arena *arena);

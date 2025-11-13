@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:26:03 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/13 12:26:14 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/10/24 17:44:24 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ static void	handle_push_to_b(t_list **a, t_list **b, int *rotations)
 	int	idx_top;
 	int	idx_next;
 
-	pb(a, b);
+	pb(a, b, 0);
 	if (*b && (*b)->next)
 	{
 		idx_top = get_index(*b, get_value(*b));
 		idx_next = get_index(*b, get_value((*b)->next));
 		if (idx_next > idx_top)
-			sb(b);
+			sb(b, 0);
 	}
 	*rotations = 0;
 }
@@ -43,7 +43,7 @@ static void	process_element(t_list **a, t_list **b, t_process_data data)
 		handle_push_to_b(a, b, data.rotations);
 	else
 	{
-		ra(a);
+		ra(a, 0);
 		(*data.rotations)++;
 	}
 }

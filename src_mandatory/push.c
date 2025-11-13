@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 15:59:57 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/02 16:00:00 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/10/24 17:37:51 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,16 @@ static void	push(t_list **dst, t_list **src)
 	*dst = tmp;
 }
 
-void	pa(t_list **stack_a, t_list **stack_b)
+void	pa(t_list **stack_a, t_list **stack_b, int silent)
 {
 	push(stack_a, stack_b);
-	write(1, "pa\n", 3);
+	if (!silent)
+		write(1, "pa\n", 3);
 }
 
-void	pb(t_list **stack_a, t_list **stack_b)
+void	pb(t_list **stack_a, t_list **stack_b, int silent)
 {
 	push(stack_b, stack_a);
-	write(1, "pb\n", 3);
+	if (!silent)
+		write(1, "pb\n", 3);
 }

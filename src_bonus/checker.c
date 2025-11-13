@@ -6,126 +6,36 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 21:57:57 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/13 13:26:33 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/10/25 17:49:48 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../src_mandatory/push_swap.h"
 
-static void	sa_silent(t_list **stack_a)
-{
-	t_list	*first;
-	t_list	*second;
-
-	if (!*stack_a || !(*stack_a)->next)
-		return ;
-	first = *stack_a;
-	second = first->next;
-	first->next = second->next;
-	second->next = first;
-	*stack_a = second;
-}
-
-static void	sb_silent(t_list **stack_b)
-{
-	sa_silent(stack_b);
-}
-
-static void	pa_silent(t_list **stack_a, t_list **stack_b)
-{
-	t_list	*temp;
-
-	if (!*stack_b)
-		return ;
-	temp = *stack_b;
-	*stack_b = (*stack_b)->next;
-	temp->next = *stack_a;
-	*stack_a = temp;
-}
-
-static void	pb_silent(t_list **stack_a, t_list **stack_b)
-{
-	pa_silent(stack_b, stack_a);
-}
-
-static void	ra_silent(t_list **stack_a)
-{
-	t_list	*first;
-	t_list	*last;
-
-	if (!*stack_a || !(*stack_a)->next)
-		return ;
-	first = *stack_a;
-	last = *stack_a;
-	while (last->next)
-		last = last->next;
-	*stack_a = first->next;
-	first->next = NULL;
-	last->next = first;
-}
-
-static void	rb_silent(t_list **stack_b)
-{
-	ra_silent(stack_b);
-}
-
-static void	rra_silent(t_list **stack_a)
-{
-	t_list	*prev;
-	t_list	*last;
-
-	if (!*stack_a || !(*stack_a)->next)
-		return ;
-	prev = NULL;
-	last = *stack_a;
-	while (last->next)
-	{
-		prev = last;
-		last = last->next;
-	}
-	prev->next = NULL;
-	last->next = *stack_a;
-	*stack_a = last;
-}
-
-static void	rrb_silent(t_list **stack_b)
-{
-	rra_silent(stack_b);
-}
-
 static int	execute_operation(char *op, t_list **stack_a, t_list **stack_b)
 {
 	if (ft_strncmp(op, "sa\n", 3) == 0)
-		sa_silent(stack_a);
+		sa(stack_a, 1);
 	else if (ft_strncmp(op, "sb\n", 3) == 0)
-		sb_silent(stack_b);
+		sb(stack_b, 1);
 	else if (ft_strncmp(op, "ss\n", 3) == 0)
-	{
-		sa_silent(stack_a);
-		sb_silent(stack_b);
-	}
+		ss(stack_a, stack_b, 1);
 	else if (ft_strncmp(op, "pa\n", 3) == 0)
-		pa_silent(stack_a, stack_b);
+		pa(stack_a, stack_b, 1);
 	else if (ft_strncmp(op, "pb\n", 3) == 0)
-		pb_silent(stack_a, stack_b);
+		pb(stack_a, stack_b, 1);
 	else if (ft_strncmp(op, "ra\n", 3) == 0)
-		ra_silent(stack_a);
+		ra(stack_a, 1);
 	else if (ft_strncmp(op, "rb\n", 3) == 0)
-		rb_silent(stack_b);
+		rb(stack_b, 1);
 	else if (ft_strncmp(op, "rr\n", 3) == 0)
-	{
-		ra_silent(stack_a);
-		rb_silent(stack_b);
-	}
+		rr(stack_a, stack_b, 1);
 	else if (ft_strncmp(op, "rra\n", 4) == 0)
-		rra_silent(stack_a);
+		rra(stack_a, 1);
 	else if (ft_strncmp(op, "rrb\n", 4) == 0)
-		rrb_silent(stack_b);
+		rrb(stack_b, 1);
 	else if (ft_strncmp(op, "rrr\n", 4) == 0)
-	{
-		rra_silent(stack_a);
-		rrb_silent(stack_b);
-	}
+		rrr(stack_a, stack_b, 1);
 	else
 		return (0);
 	return (1);
@@ -181,8 +91,6 @@ int	main(int argc, char *argv[])
 		argc = count_new_arg(argv[1]) + 1;
 		argv = arena_split(argv[1], ' ', &arena);
 	}
-	if (!arena.data)
-		return (1);
 	if (!parse_arguments(argc, argv, &arena, &stack_a))
 		return (1);
 	if (!read_and_execute(&stack_a, &stack_b, &moves))

@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:40:59 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/21 00:51:22 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/10/24 17:46:01 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,19 @@ void	sort_three(t_list **stack_a)
 	if (num1 < num2 && num2 < num3)
 		return ;
 	if (num1 > num2 && num2 < num3 && num1 < num3)
-		sa(stack_a);
+		sa(stack_a, 0);
 	else if (num1 > num2 && num1 > num3 && num2 > num3)
 	{
-		sa(stack_a);
-		rra(stack_a);
+		sa(stack_a, 0);
+		rra(stack_a, 0);
 	}
 	else if (num1 > num2 && num1 > num3 && num2 < num3)
-		ra(stack_a);
+		ra(stack_a, 0);
 	else if (num1 < num2 && num1 > num3 && num2 > num3)
-		rra(stack_a);
+		rra(stack_a, 0);
 	else if (num1 < num2 && num2 > num3 && num1 < num3)
 	{
-		sa(stack_a);
-		ra(stack_a);
+		sa(stack_a, 0);
+		ra(stack_a, 0);
 	}
 }
