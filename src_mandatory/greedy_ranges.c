@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:26:03 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/24 17:44:24 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:13:05 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ static void	handle_push_to_b(t_list **a, t_list **b, int *rotations)
 	*rotations = 0;
 }
 
+/*
 static void	process_element(t_list **a, t_list **b, t_process_data data)
 {
 	if (data.index < data.max_index)
@@ -60,6 +61,26 @@ static void	push_range_to_b(t_list **a, t_list **b, int max_index, int size)
 		data.max_index = max_index;
 		data.rotations = &rotations;
 		process_element(a, b, data);
+	}
+}
+*/
+
+static void	push_range_to_b(t_list **a, t_list **b, int max_index, int size)
+{
+	int	rotations;
+	int	index;
+
+	rotations = 0;
+	while (ft_lstsize(*a) > 3 && rotations < size)
+	{
+		index = get_index(*a, get_value(*a));
+		if (index < max_index)
+			handle_push_to_b(a, b, &rotations);
+		else
+		{
+			ra(a, 0);
+			rotations++;
+		}
 	}
 }
 

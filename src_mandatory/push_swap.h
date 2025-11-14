@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 01:06:45 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/24 17:51:55 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:14:21 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,14 @@ typedef struct s_cost
 	int			strategy;
 }				t_cost;
 
+/*
 typedef struct s_process_data
 {
 	int			index;
 	int			max_index;
 	int			*rotations;
 }				t_process_data;
+*/
 
 struct s_arena	arena_create(size_t size);
 void			*arena_alloc(struct s_arena *arena, size_t size);
