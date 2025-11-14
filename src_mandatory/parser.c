@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:12:01 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/13 13:28:32 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/11/14 18:37:44 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	is_rep(t_list *stack_a, int *num)
 {
 	while (stack_a)
 	{
-		if (*(int *)stack_a->content == *num)
+		if (get_value(stack_a) == *num)
 			return (1);
 		stack_a = stack_a->next;
 	}
@@ -62,7 +62,7 @@ static int	is_valid_number(char *str)
 	return (1);
 }
 
-static int	create_node(struct s_arena *arena, t_list **stack_a, char *arg)
+static int	create_node(t_arena *arena, t_list **stack_a, char *arg)
 {
 	int		*num;
 	long	temp;
@@ -88,7 +88,7 @@ static int	create_node(struct s_arena *arena, t_list **stack_a, char *arg)
 	return (1);
 }
 
-int	parse_arguments(int argc, char *argv[], struct s_arena *arena,
+int	parse_arguments(int argc, char *argv[], t_arena *arena,
 		t_list **stack_a)
 {
 	int	i;

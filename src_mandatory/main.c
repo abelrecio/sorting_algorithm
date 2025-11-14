@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 20:40:28 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/13 13:28:20 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/11/14 18:31:54 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	main(int argc, char *argv[])
 {
-	t_list			*stack_a;
-	t_list			*stack_b;
-	struct s_arena	arena;
+	t_list	*stack_a;
+	t_list	*stack_b;
+	t_arena	arena;
 
 	if (argc < 2)
 		return (0);

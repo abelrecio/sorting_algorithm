@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 12:26:03 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/11/13 16:13:05 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/11/14 19:04:11 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static void	push_range_to_b(t_list **a, t_list **b, int max_index, int size)
 	}
 }
 
-void	push_to_b_by_ranges(t_list **a, t_list **b)
+void	push_to_b_by_ranges(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
 	int	num_ranges;
@@ -92,15 +92,15 @@ void	push_to_b_by_ranges(t_list **a, t_list **b)
 	int	current_range;
 	int	max_index;
 
-	size = ft_lstsize(*a);
+	size = ft_lstsize(*stack_a);
 	calculate_ranges(size, &num_ranges, &range_size);
 	current_range = 0;
-	while (ft_lstsize(*a) > 3 && current_range < num_ranges)
+	while (ft_lstsize(*stack_a) > 3 && current_range < num_ranges)
 	{
 		max_index = (current_range + 1) * range_size;
 		if (current_range == num_ranges - 1)
 			max_index = size;
-		push_range_to_b(a, b, max_index, size);
+		push_range_to_b(stack_a, stack_b, max_index, size);
 		current_range++;
 	}
 }

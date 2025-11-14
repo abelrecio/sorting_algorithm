@@ -6,7 +6,7 @@
 /*   By: abrecio- <abrecio-@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 01:01:25 by abrecio-          #+#    #+#             */
-/*   Updated: 2025/10/21 01:01:26 by abrecio-         ###   ########.fr       */
+/*   Updated: 2025/11/14 18:53:21 by abrecio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,6 @@ int	get_min(t_list *stack)
 	}
 	return (min);
 }
-
-//porque el último igual es null e itero de forma confusa
 
 int	is_sorted(t_list *stack)
 {
